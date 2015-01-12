@@ -1,3 +1,7 @@
+/* Theodore Chin
+INFO 498 Homework 1
+*/
+
 package com.tedneward.example;
 
 import java.beans.*;
