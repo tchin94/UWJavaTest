@@ -63,7 +63,7 @@ public class Person {
   }
   
   public boolean equals(Person other) {
-    return (this.name.equals(p.name) && this.age == p.age);
+    return (this.name.equals(other.name) && this.age == other.age);
   }
 
   public String tostring() {
