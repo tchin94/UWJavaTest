@@ -81,6 +81,7 @@ public class TestPerson {
     List<Person> people = Person.getNewardFamily();
     Collections.sort(people);
     
+    System.out.println("hello world");
     assertEquals(new Person("Ted", 41, 250000), people.get(0));
     assertEquals(new Person("Charlotte", 43, 150000), people.get(1));
     assertEquals(new Person("Michael", 22, 10000), people.get(2));
@@ -90,11 +91,19 @@ public class TestPerson {
   @Test
   public void catchPropertyChange() {
     Person ted = new Person("Ted", 43, 250000);
+    ted.addPropertyChangeListener(new PropertyChangeListener() {
+      public void propertyChange(PropertyChangeEvent pce) {
+        assertEquals("ssn", pce.getPropertyName());
+        assertEquals("", pce.getOldValue());
+        assertEquals("012-34-5678", pce.getNewValue());
+      }
+    } );
 
     // ============ YOUR CHANGES BEGIN HERE
     // Call addPropertyChangeListener with a PropertyChangedListener
     // that has the following code in it:
     /*
+
     assertEquals("ssn", pce.getPropertyName());
     assertEquals("", pce.getOldValue());
     assertEquals("012-34-5678", pce.getNewValue());
